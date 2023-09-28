@@ -1,0 +1,27 @@
+server:
+  port: 9000
+
+#Database
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_campus
+    username: root
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+  data:
+    rest:
+      basePath: /api
+
+app:
+  otp:
+    attempt: 8
+
+security:
+  jwt:
+    authUrl: /**/auth/**/
+    header: Authorization
+    prefix: Bearer
+    secret: 2tIenCNhOwiZosM5
+    expiration: 3600
