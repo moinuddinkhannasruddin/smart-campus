@@ -1,7 +1,6 @@
 package com.ti.models.dtos.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ti.models.constants.UserType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +8,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Azam
@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UserDto {
 
-    private String userId;
+    private String id;
     private String email;
     private String name;
     private String contact;
@@ -28,16 +28,16 @@ public class UserDto {
     @JsonIgnore
     private String password;
 
-    private UserType userType;
+    private String userTypes;
     private Integer isActive;
     private Integer is2FaActive;
     private LocalDateTime lastLogin;
 
-    private List<EntityDto> linkedEntities = new ArrayList<>();
+    private List<EntityDto> entities = new ArrayList<>();
 
-    private List<SubEntityDto> linkedSubEntityDto = new ArrayList<>();
+    private List<SubEntityDto> subEntities = new ArrayList<>();
 
-    private List<RoleDto> linkedRoles = new ArrayList<>();
+    private Set<RoleDto> roles;
 
 
 }

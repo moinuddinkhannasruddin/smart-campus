@@ -37,6 +37,6 @@ public class Role extends Base {
     @Column(name = "type")
     private RoleType type;
 
-    @Column(name = "is_active", columnDefinition = "TINYINT default 0")
-    private int isActive;
+    @Column(name = "is_active", columnDefinition = "TINYINT(1) default 0")
+    private Integer isActive;
 }

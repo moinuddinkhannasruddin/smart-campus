@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class ServiceException extends RuntimeException{
 
-    private String details = "";
+    private String errorCode = "";
 
     public ServiceException(String message){
         super(message);
     }
 
-    public ServiceException(String exception, String details) {
+    public ServiceException(String exception, String errorCode) {
         super(exception);
-        this.details = details;
+        this.errorCode = errorCode;
     }
 }

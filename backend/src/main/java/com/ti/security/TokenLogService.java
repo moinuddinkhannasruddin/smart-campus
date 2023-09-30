@@ -3,9 +3,7 @@ package com.ti.security;
 import com.ti.exceptions.ServiceException;
 import com.ti.exceptions.UnauthorizedException;
 import com.ti.exceptions.errors.GenericErrors;
-import com.ti.exceptions.errors.UserErrors;
 import com.ti.models.constants.TokenLogPurpose;
-import com.ti.models.constants.UserType;
 import com.ti.repositories.TokenLogRepository;
 import com.ti.utils.SecurityUtil;
 import lombok.RequiredArgsConstructor;
@@ -29,12 +27,12 @@ public class TokenLogService {
 
     private final TokenLogRepository tokenLogRepository;
 
-    public int createLoginLog(String userId, String email, UserType userType, LocalDateTime expirationDate, String ip) {
+    public int createLoginLog(String userId, String email, String userTypes, LocalDateTime expirationDate, String ip) {
 
         TokenLog tokenLog = new TokenLog();
 
         tokenLog.setUserId(userId + "");
-        tokenLog.setUserType(userType);
+        tokenLog.setUserTypes(userTypes);
 
         tokenLog.setPurpose(TokenLogPurpose.LOGIN);
         tokenLog.setEmail(email);
@@ -68,8 +66,8 @@ public class TokenLogService {
         tokenLogRepository.save(tokenLog);
     }
 
-    public String createResetLog(String userId, String email, UserType userType, String remoteAddress) {
-        Optional<TokenLog> tokenLog = tokenLogRepository.findFirstByUserIdAndUserTypeAndPurposeAndIsValid(userId + "", userType, TokenLogPurpose.RESET, 1);
+    public String createResetLog(String userId, String email, String userTypes, String remoteAddress) {
+        Optional<TokenLog> tokenLog = tokenLogRepository.findFirstByUserIdAndUserTypesAndPurposeAndIsValid(userId + "", userTypes, TokenLogPurpose.RESET, 1);
 
         if (tokenLog.isPresent()) {
             TokenLog tokenLog1 = tokenLog.get();
@@ -85,7 +83,7 @@ public class TokenLogService {
         TokenLog tl = new TokenLog();
         tl.setUserId(userId + "");
         tl.setIp(remoteAddress);
-        tl.setUserType(userType);
+        tl.setUserTypes(userTypes);
         tl.setPurpose(TokenLogPurpose.RESET);
         tl.setEmail(email);
         tl.setToken(SecurityUtil.generateOpaque(userId));

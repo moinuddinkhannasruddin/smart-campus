@@ -27,7 +27,6 @@ public class SecurityTokenConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 // make sure we use stateless session; session won't be used to store user's
                 // state.

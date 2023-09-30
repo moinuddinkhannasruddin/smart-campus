@@ -1,7 +1,6 @@
 package com.ti.models;
 
 import com.ti.models.constants.Gender;
-import com.ti.models.constants.UserType;
 import com.ti.utils.SecurityUtil;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -74,9 +73,8 @@ public class User extends Base {
     @Column(name = "login_attempt", columnDefinition = "int(11) DEFAULT 0")
     private Integer loginAttempt = 0;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "user_types")
-    private List<UserType> userTypes;
+    private String userTypes;
 
     @Column(name = "dob")
     private LocalDate dateOfBirth;

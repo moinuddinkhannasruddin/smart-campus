@@ -7,8 +7,6 @@ import com.ti.utils.ClassUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * @author Azam
  */

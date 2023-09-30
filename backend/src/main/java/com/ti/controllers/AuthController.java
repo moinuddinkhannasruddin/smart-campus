@@ -1,11 +1,11 @@
 package com.ti.controllers;
 
 import com.ti.exceptions.ApiException;
+import com.ti.exceptions.ServiceException;
 import com.ti.exceptions.errors.UserErrors;
 import com.ti.models.User;
 import com.ti.models.dtos.common.CommonDto;
 import com.ti.models.dtos.common.UserDto;
-import com.ti.models.dtos.requests.ForgotPasswordRequest;
 import com.ti.models.dtos.requests.LoginRequest;
 import com.ti.models.dtos.requests.VerifyOtpRequest;
 import com.ti.models.dtos.responses.LoginResponse;
@@ -15,7 +15,6 @@ import com.ti.security.TokenService;
 import com.ti.services.AuthService;
 import com.ti.services.LoggerService;
 import com.ti.utils.ClassUtil;
-import com.ti.utils.CommonUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -47,6 +46,9 @@ public class AuthController {
         try {
             user = authService.authenticate(loginRequest);
         } catch (Exception ex) {
+            if(ex instanceof ServiceException serviceException){
+                throw new ApiException(ex.getMessage(), serviceException.getErrorCode());
+            }
             throw new ApiException(ex.getMessage());
         }
 

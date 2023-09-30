@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * @author Azam
@@ -32,10 +31,7 @@ public class AuthService {
 
 
     public UserDto authenticate(LoginRequest loginRequest) {
-        User user = userRepository.findFirstByEmail(loginRequest.getUsername()).orElseThrow(() -> {
-            loggerService.error(UserErrors.getErrorMessage(UserErrors.UE201), "authenticate", "");
-            return new ServiceException(UserErrors.UE201);
-        });
+        User user = userRepository.findFirstByEmail(loginRequest.getUsername()).orElseThrow(() -> new ServiceException(UserErrors.getErrorDetails(UserErrors.UE201), UserErrors.UE201));
 
         if (!user.getIsActive().equals(1)) {
             loggerService.error(UserErrors.getErrorMessage(UserErrors.UE202), "authenticate", "");
@@ -69,7 +65,7 @@ public class AuthService {
         UserDto userDto = ClassUtil.convert(user, UserDto.class);
 
         if (lastLoginTime != null) {
-            user.setLastLogin(LocalDateTime.parse(lastLoginTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))));
+            user.setLastLogin(lastLoginTime);
         }
 
         loggerService.info("Authenticate", "authenticate", "");
@@ -87,9 +83,10 @@ public class AuthService {
 
     public LoginResponse tokenLoginResponse(HttpServletRequest request, UserDto userDto, LoginResponse loginResponse) {
         Token tokenBody = new Token();
-        tokenBody.setUserId(userDto.getUserId());
+        tokenBody.setUserId(userDto.getId());
         tokenBody.setUserName(userDto.getName());
-        tokenBody.setUserType(userDto.getUserType());
+        tokenBody.setUserTypes(userDto.getUserTypes());
+        tokenBody.setEmail(userDto.getEmail());
 
         String token = tokenService.generateJwt(tokenBody, CommonUtil.getRemoteAddress(request));
 

@@ -12,4 +12,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class EntityDto {
+
+    private Integer id;
+    private String name;
+    private String slogan;
+    private Integer isActive;
 }

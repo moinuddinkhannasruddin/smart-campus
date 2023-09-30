@@ -2,7 +2,6 @@ package com.ti.security;
 
 import com.ti.models.Base;
 import com.ti.models.constants.TokenLogPurpose;
-import com.ti.models.constants.UserType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,7 +15,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @author Azam
@@ -36,9 +34,8 @@ public class TokenLog extends Base {
     @Column(name = "user_id", length = 256)
     private String userId;
 
-    @Column(name = "user_type")
-    @Enumerated(EnumType.STRING)
-    private UserType userType;
+    @Column(name = "user_types")
+    private String userTypes;
 
     @Column(name = "purpose", columnDefinition = "enum('LOGIN', 'RESET')")
     @Enumerated(EnumType.STRING)
