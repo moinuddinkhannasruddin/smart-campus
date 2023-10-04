@@ -1,77 +1,59 @@
+import React from "react";
+import Stack from "components/common/Stack";
+import Text from 'components/common/Text';
+import { makeStyles } from "@mui/styles";
 
-import AppBar from '@mui/material/AppBar';
-import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Badge from '@mui/material/Badge';
-import { Sidebar } from './Sidebar';
 
-export const Header = () => {
+const Header = ({ label, image, CustomButton }) => {
+  const classes = useStyles();
   return (
-    <>
-      <AppBar>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={() => <Sidebar />}
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            Professor Management
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              // aria-controls={menuId}
-              aria-haspopup="true"
-              // onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              // aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              // onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </>
-  )
+    <Stack
+      direction="row"
+      alignItems="center"
+      spacing={2}
+      className={classes.formHeading}
+    >
+      <div className={classes.leftContent}>
+        <img src={image} alt={label} width="24" height="24" className={classes.image} />
+        <Text variant="body2" className={classes.label}>{label}</Text>
+      </div>
+      <div className={classes.rightContent}>
+        {CustomButton &&
+          CustomButton.map((CustomButton, index) => (
+            <div key={index} className={classes.buttonContainer}>{CustomButton}</div>
+          ))}
+      </div>
+    </Stack>
+  );
 }
 
+export default Header;
+
+const useStyles = makeStyles((theme) => ({
+  formHeading: {
+    backgroundColor: `${theme.palette.secondary.main}`,
+    padding: "0.9rem 1.5rem",
+    marginBottom: "1rem",
+    borderRadius: "0.5rem",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  leftContent: {
+    display: "flex",
+    alignItems: "center",
+  },
+  image: {
+    marginRight: theme.spacing(1),
+  },
+  label: {
+    marginRight: theme.spacing(1),
+  },
+
+  rightContent: {
+    display: "flex",
+    alignItems: "center",
+  },
+  buttonContainer: {
+    marginLeft: theme.spacing(2),
+  },
+}));

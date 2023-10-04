@@ -1,6 +1,7 @@
 package com.ti.models.dtos.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ti.models.dtos.responses.EntityResponseDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,7 +34,7 @@ public class UserDto {
     private Integer is2FaActive;
     private LocalDateTime lastLogin;
 
-    private List<EntityDto> entities = new ArrayList<>();
+    private List<EntityResponseDto> entities = new ArrayList<>();
 
     private List<SubEntityDto> subEntities = new ArrayList<>();
 

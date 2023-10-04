@@ -56,14 +56,13 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
             // expired
 
             // 4. Validate the token
-            Token tokenBody = null;
+            Token tokenBody;
 
             tokenBody = tokenService.verifyJwt(token);
 
             String username = tokenBody.getUserName();
-            if (username != null && username.length() != 0) {
+            if (username != null && !username.isEmpty()) {
 
-                @SuppressWarnings("unchecked")
                 List<String> authorities = Collections.emptyList();
                 // List<String> authorities = (List<String>) claims.get("authorities");
 

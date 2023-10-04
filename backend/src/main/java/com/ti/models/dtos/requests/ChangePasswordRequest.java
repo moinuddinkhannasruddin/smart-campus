@@ -1,4 +1,18 @@
-package com.ti.models.dtos.requests;/**
+package com.ti.models.dtos.requests;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
  * @author Azam
- */public class ChangePasswordRequest {
+ */
+@Getter
+@Setter
+@NoArgsConstructor
+public class ChangePasswordRequest {
+
+    private String oldPassword;
+    private String newPassword;
+
 }

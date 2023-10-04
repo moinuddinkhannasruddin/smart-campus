@@ -1,4 +1,4 @@
-package com.ti.models.dtos.common;
+package com.ti.models.dtos.responses;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class EntitySettingDto {
+public class EntitySettingResponseDto {
 
     private Integer id;
 

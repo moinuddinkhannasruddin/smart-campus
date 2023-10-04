@@ -103,8 +103,8 @@ public class TokenService {
 
         tokenBody.setTokenLogId((int) claims.get("tokenLogId"));
 
-        TokenLog ol = tokenLogService.getTokenLogById(tokenBody.getTokenLogId());
-        if (ol.getIsValid() != 1) {
+        TokenLog tokenLog = tokenLogService.getTokenLogById(tokenBody.getTokenLogId());
+        if (tokenLog.getIsValid() != 1) {
             throw new UnauthorizedException("Unauthorized");
         }
 

@@ -1,6 +1,5 @@
-package com.ti.models.dtos.common;
+package com.ti.models.dtos.responses;
 
-import com.ti.models.EntitySetting;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,11 +11,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class EntityDto {
+public class EntityResponseDto {
 
     private Integer id;
     private String name;
     private String slogan;
     private Integer isActive;
-    private EntitySettingDto entitySetting;
+    private EntitySettingResponseDto entitySetting;
 }

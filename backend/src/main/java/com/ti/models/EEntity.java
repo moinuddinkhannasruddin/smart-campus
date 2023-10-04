@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,7 +38,4 @@ public class EEntity extends Base{
     @Column(name = "is_active", columnDefinition = "TINYINT(1) DEFAULT 0")
     private Integer isActive;
 
-//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name="es_id", referencedColumnName = "id")
-//    private EntitySetting entitySetting;
 }

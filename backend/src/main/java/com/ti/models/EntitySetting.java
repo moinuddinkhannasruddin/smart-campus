@@ -43,6 +43,6 @@ public class EntitySetting extends Base{
     private String logo;
 
     @OneToOne
-    @JoinColumn(name = "entity_id")
+    @JoinColumn(name = "entity_id", insertable = false, updatable = false)
     private EEntity entity;
 }

@@ -5,29 +5,28 @@ import java.util.HashMap;
 /**
  * @author Azam
  */
-public class UserErrors {
+public class EntityErrors {
 
-    public static String UE201 = "UE201";
-    public static String UE202 = "UE202";
-    public static String UE203 = "UE203";
-    public static String UE204 = "UE204";
-    public static String UE205 = "UE205";
-    public static String UE206 = "UE206";
-    public static String UE207 = "UE207";
-    public static String UE208 = "UE208";
+    public static String EE301 = "EE301";
+    public static String EE302 = "EE302";
+    public static String EE303 = "EE303";
+    public static String EE304 = "EE304";
+    public static String EE305 = "EE305";
+    public static String EE306 = "EE306";
+    public static String EE307 = "EE307";
+    public static String EE308 = "EE308";
 
     protected static HashMap<String, String> responseData = new HashMap<>();
 
     public static void setErrors(){
-        responseData.put(UE201,
-                "Incorrect User Id or Password");
-        responseData.put(UE202, "User is not active. Please contact admin");
-        responseData.put(UE203, "You have exceeded your maximum tries. Please try after 15 min");
-        responseData.put(UE204, "Old password is not correct");
-        responseData.put(UE205, "Logout successfully");
-        responseData.put(UE206, "Please enter registered email id");
-        responseData.put(UE207, "User id not found");
-        responseData.put(UE208, "You don't have access to view the ");
+        responseData.put(EE301, "Entity id not found");
+        responseData.put(EE302, "User is not active. Please contact admin");
+        responseData.put(EE303, "You have exceeded your maximum tries. Please try after 15 min");
+        responseData.put(EE304, "Old password is not correct");
+        responseData.put(EE305, "Logout successfully");
+        responseData.put(EE306, "Please enter registered email id");
+        responseData.put(EE307, "User id not found");
+        responseData.put(EE308, "You don't have access to view the ");
     }
 
     public static String getErrorDetails(String errorCode) {

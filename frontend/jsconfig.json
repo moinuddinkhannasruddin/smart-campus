@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "jsx": "react-jsx",
+        "module": "esnext",
+        "target": "esnext",
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
+            ],
+            "@containers/*": [
+                "src/containers/*"
+            ],
+            "@helpers/*": [
+                "src/helpers/*"
+            ],
+            "@utils/*": [
+                "src/utils/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@constants/*": [
+                "src/constants/*"
+            ],
+            "@navigators/*": [
+                "src/navigators/*"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}
