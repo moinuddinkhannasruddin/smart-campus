@@ -7,14 +7,19 @@ import lombok.Setter;
 /**
  * @author Azam
  */
-
 @Getter
 @Setter
 @NoArgsConstructor
-public class EntityDto {
+public class EntitySettingDto {
 
     private Integer id;
-    private String name;
-    private String slogan;
-    private Integer isActive;
+
+    private String primaryColor;
+
+    private String secondaryColor;
+
+    private String territoryColor;
+
+    private String logo;
+
 }
