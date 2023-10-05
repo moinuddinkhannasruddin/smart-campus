@@ -31,7 +31,7 @@ const LoginFormComponent = ({
       spacing={1.5}
     >
       <img
-        src="/assets/images/WhatsApp Image 2023-05-08 at 11.46 2.png"
+        src="/assets/images/OrianaTech.jpeg"
         alt="logo"
         width={"338px"}
         height={"73.87px"}

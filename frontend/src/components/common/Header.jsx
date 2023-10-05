@@ -1,6 +1,6 @@
 import React from "react";
-import Stack from "components/common/Stack";
-import Text from 'components/common/Text';
+import Stack from "@components/common/Stack";
+import Text from '@components/common/Text';
 import { makeStyles } from "@mui/styles";
 
 

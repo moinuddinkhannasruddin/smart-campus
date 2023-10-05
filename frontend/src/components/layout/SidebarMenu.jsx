@@ -1,6 +1,6 @@
 import React from "react";
-import {createStyles, makeStyles} from "@mui/styles";
-import {alpha} from "@mui/material/styles";
+import { createStyles, makeStyles } from "@mui/styles";
+import { alpha } from "@mui/material/styles";
 import List from "../common/List";
 import Divider from "../common/Divider";
 import ListItem from "../common/ListItem";
@@ -14,11 +14,12 @@ import ListItemSecondaryAction from "@components/common/ListItemSecondaryAction"
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SidebarMenu = (props) => {
-    const {menuConfig = [], isDrawerExpanded, handleSidebarClick} = props;
+    const { menuConfig = [], isDrawerExpanded, handleSidebarClick } = props;
     const classes = useStyles();
 
     const [expanded, setExpanded] = React.useState();
@@ -58,7 +59,7 @@ const SidebarMenu = (props) => {
                             <ListItem
                                 onClick={() => handleSidebarClick(route)}
                                 key={key}
-                                sx={{py: 0}}
+                                sx={{ py: 0 }}
                             >
                                 <ListItemButton
                                     onClick={onClick}
@@ -71,7 +72,7 @@ const SidebarMenu = (props) => {
                                     }}
                                 >
                                     {icon && (
-                                        <ListItemIcon classes={{root: classes.listItemIconRoot}}>
+                                        <ListItemIcon classes={{ root: classes.listItemIconRoot }}>
                                             {icon}
                                         </ListItemIcon>
                                     )}
@@ -102,7 +103,7 @@ const SidebarMenu = (props) => {
                         <ListItem
                             onClick={() => handleSidebarClick(route)}
                             key={key}
-                            sx={{px: 1.5, py: 0}}
+                            sx={{ px: 1.5, py: 0 }}
                         >
                             <ListItemButton
                                 onClick={onClick}
@@ -116,7 +117,7 @@ const SidebarMenu = (props) => {
                             >
                                 {icon && (
                                     <IconButton
-                                        classes={{root: classes.listItemIconCollapsedRoot}}
+                                        classes={{ root: classes.listItemIconCollapsedRoot }}
                                     >
                                         {icon}
                                     </IconButton>
@@ -128,14 +129,14 @@ const SidebarMenu = (props) => {
 
                 if (type === "accordian") {
                     return (
-                        <MuiAccordion className={classes.Accordianroot} key={`${key}_${primaryText}`}
-                                      expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
-                                      sx={{background: "transparent", boxShadow: "none"}}>
+                        <MuiAccordion className={classes.accordianRoot} key={`${key}_${primaryText}`}
+                            expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
+                            sx={{ background: "transparent", boxShadow: "none" }}>
 
-                            <MuiAccordionSummary sx={{background: "transparent", paddingLeft: "29px"}} className="two"
-                                                 aria-controls="panel1d-content" id="panel1d-header">
+                            <MuiAccordionSummary sx={{ background: "transparent", paddingLeft: "29px" }} className="two"
+                                aria-controls="panel1d-content" id="panel1d-header" expandIcon={<ExpandMoreIcon />}>
                                 {icon && (
-                                    <ListItemIcon classes={{root: classes.listItemIconRoot}}>
+                                    <ListItemIcon classes={{ root: classes.listItemIconRoot }}>
                                         {icon}
                                     </ListItemIcon>
                                 )}
@@ -158,14 +159,14 @@ const SidebarMenu = (props) => {
                             {childrens?.length && childrens.map((itm, i) => {
                                 return (
                                     <MuiAccordionDetails
-                                        className="three"
+                                        className={classes.listItemCollapsedRoot}
                                         key={`${key}_${itm.name} `}
-                                        sx={{paddingLeft: "39px"}}
+                                        sx={{ paddingLeft: "39px" }}
                                     >
-                                        <Link to={`${route}/${itm.path}`}>
+                                        <Link to={`${route}/${itm.path}`} style={{ textDecoration: "none" }}>
                                             <Text
                                                 variant="subtitle1"
-                                                sx={{color: "#fff", cursor: "pointer"}}
+                                                sx={{ color: "#fff", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center" }}
                                             >
                                                 {itm.name}
                                             </Text>
@@ -185,12 +186,12 @@ const SidebarMenu = (props) => {
                 if (type === "divider") {
                     return (
                         <ListItem key={key} className={classes.divider}>
-                            <Divider/>
+                            <Divider />
                         </ListItem>
                     );
                 }
                 if (type === "spacer") {
-                    return <ListItem key={key} className={classes.spacer}/>;
+                    return <ListItem key={key} className={classes.spacer} />;
                 }
                 if (type === "dropdown") {
                     // ... your dropdown type logic
@@ -206,7 +207,7 @@ const SidebarMenu = (props) => {
 };
 const useStyles = makeStyles((theme) =>
     createStyles({
-        Accordianroot: {
+        accordianRoot: {
             "& .MuiAccordion-region": {
                 minHeight: 0,
                 margin: "13px",
@@ -214,7 +215,6 @@ const useStyles = makeStyles((theme) =>
                 borderRadius: "6px"
             },
         },
-
 
         listRoot: {
             display: "flex",

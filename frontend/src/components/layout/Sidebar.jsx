@@ -45,9 +45,9 @@ const Sidebar = (props) => {
                     onClick={() => onDrawerToggle(false)}
                 >
                     <img
-                        src="/assets/images/GetKreditLogo.jpg"
-                        alt="GKredit"
-                        width="auto"
+                        src="/assets/images/OrianaTech.jpeg"
+                        alt="OrianaTech"
+                        width={112}
                         height={38}
                         classes={{root: classes.logoWrap}}
                     />
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) =>
         drawerPaper: {
             width: "15rem",
             border: `0 !important`,
-            backgroundColor: `${theme.palette.primary.main} !important`,
+            backgroundColor: `${theme.palette.primary.light} !important`,
         },
         drawerExpanded: {
             width: "15rem",
@@ -115,11 +115,11 @@ const useStyles = makeStyles((theme) =>
             display: "flex",
             alignItems: "center",
             backgroundColor: `${theme.palette.common.white} !important`,
-            padding: theme.spacing(0, 1),
+            // padding: theme.spacing(0, 1),
             ...theme.mixins.toolbar,
         },
         drawerHeaderExpanded: {
-            justifyContent: "space-between",
+            justifyContent: "space-around",
             backgroundColor: `${theme.palette.common.white} !important`,
         },
         drawerHeaderCollapsed: {

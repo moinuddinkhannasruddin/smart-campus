@@ -1,6 +1,6 @@
 
 export const user = {
-  profileImage: "/assets/image/profile-image.jpg",
+  profileImage: "/assets/images/profile-image.jpg",
   name: "Christopher Nolan",
   email: "christophernolan@gmail.com",
   phoneNumber: "+919876543212",

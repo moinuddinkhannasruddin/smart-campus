@@ -5,7 +5,6 @@ import Header from "@components/layout/Header";
 import Sidebar from "@components/layout/Sidebar";
 import WithRouter from "@helpers/withRouter";
 import { userModulesData } from "@helpers/dummyBackend";
-// import sidebarRouteConfig from "helpers/sidebarRouteConfig";
 import { Outlet } from "react-router-dom"
 import sidebarRouteConfig from "@helpers/sidebarRouteConfig";
 

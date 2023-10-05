@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
+import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import MenuItem from "@mui/material/MenuItem";
 import DatePicker from "@mui/lab/DatePicker";
 import CustomTextField from "./TextField";
-import { validateField } from "helpers/validations";
 import CommonDropzone from "./FileUpload";
 import Radio from "./Radio";
 import { Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-const FormModule = ({ fieldsData, handleFileChange, handleChange,formData }) => {
+const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) => {
   // const [formData, setFormData] = useState({});
   const [formErrors, setFormErrors] = useState({});
   const classes = useStyles();

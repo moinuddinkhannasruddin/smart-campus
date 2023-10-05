@@ -49,14 +49,14 @@ const Header = (props) => {
                 </ToolBar>
                 <ToolBar className={classes.toolBarRoot}>
                     <img
-                        src="assets/icons/NotificationIcon.svg"
+                        src="/assets/icons/NotificationIcon.svg"
                         alt="Notification-icon"
                         width="24"
                         height="24"
                     />
 
                     <img
-                        src="assets/images/Avatar.jpg"
+                        src="/assets/images/Avatar.jpg"
                         alt="Profile-logo"
                         width="40"
                         height="40"

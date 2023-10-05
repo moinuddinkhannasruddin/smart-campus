@@ -1,5 +1,4 @@
-import React from "react";
-import { Paper, Typography } from "@mui/material";
+import { Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { user, employee, project } from "./ProfileData";
 import Text from "@components/common/Text";
@@ -42,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid var(--grey-line, #CBCBCB)",
   },
 
-  maincontainer: {
+  mainContainer: {
     display: "flex",
     padding: "0px",
     flexDirection: "column",
@@ -134,7 +133,7 @@ const ProfileContainer = () => {
     <>
       <div className={classes.container}>
         <Paper className={classes.paper}>
-          <div className={classes.maincontainer}>
+          <div className={classes.mainContainer}>
             <div className={classes.main}>
               <img
                 src={user.profileImage}
