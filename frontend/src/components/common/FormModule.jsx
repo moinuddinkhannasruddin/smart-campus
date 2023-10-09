@@ -5,13 +5,15 @@ import DatePicker from "@mui/lab/DatePicker";
 import CustomTextField from "./TextField";
 import CommonDropzone from "./FileUpload";
 import Radio from "./Radio";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) => {
   // const [formData, setFormData] = useState({});
+  
   const [formErrors, setFormErrors] = useState({});
   const classes = useStyles();
+  
 
   const textFieldStyle = {
     color: "var(--text-black, #101828)",
@@ -22,22 +24,27 @@ const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) =>
     lineHeight: "24px",
   };
 
+  
+
 
   const OutputForm = () => {
+    console.log(OutputForm);
     return (
       <Grid container spacing={2}>
         {fieldsData.map((field) => {
+
           if (field.type === "textfield") {
             return (
+              
               <Grid item {...field.gridSize} key={field.name}>
-  
+                
                 <CustomTextField
                   label={field.label}
                   type={field.type}
                   placeholder={field.placeholder}
                   id={field.name}
                   name={field.name}
-                  value={formData[field.name] || ""}
+                  value={formData[field.name]}
                   onChange={handleChange}
                   fullWidth
                   InputProps={{ style: { fontSize: 16 } }}
@@ -55,6 +62,7 @@ const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) =>
                   helperText={formErrors[field.name] || ""}
                   group={field.group}
                 />
+                
               </Grid>
             );
           }
@@ -75,6 +83,7 @@ const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) =>
                 }}    
                 />
               </Grid>
+              
             )
           }
   
@@ -133,9 +142,27 @@ const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) =>
               </Grid>
             );
           }
-          if (field.type === "date") {
-            return (<DatePicker />);
-          }
+          // if (field.type === "date") {
+          //   return (<DatePicker />);
+          // }
+          // if (field.type === "date") {
+          //   console.log("Rendering date picker for field:", field);
+          //   return (
+          //     <Grid item {...field.gridSize} key={field.name}>
+          //       <DatePicker
+          //         label={field.label}
+          //         id={field.name}
+          //         name={field.name}
+          //         value={formData[field.name] || null }
+          //         onChange={(date) =>
+          //           handleChange({ name: field.name, value: date })
+          //         }
+          //         renderInput={(params) => <TextField {...params} />} // Use TextField from @mui/material
+          //       />
+          //     </Grid>
+          //   );
+          // }
+
           if (field.type === "textArea") {
             return (
               <Grid item {...field.gridSize} key={field.name}>
@@ -153,6 +180,7 @@ const FormModule = ({ fieldsData, handleFileChange, handleChange, formData }) =>
                   fullWidth
                   InputProps={{ style: textFieldStyle }}
                 />
+               
               </Grid>
             );
           }

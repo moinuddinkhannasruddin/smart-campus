@@ -1,11 +1,13 @@
 import React from 'react'
 import Stack from '../common/Stack';
-import { Paper } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 import Box from '../common/Box';
 import Header from '../common/Header';
 import FormModule from '../common/FormModule';
+import TextField from '../common/TextField';
 
 const AdmissionForms = ({ fieldsData, formData, handleChange }) => {
+   
     const style = {
         padding: "32px",
         display: "flex",
@@ -26,11 +28,50 @@ const AdmissionForms = ({ fieldsData, formData, handleChange }) => {
                         image="/assets/icons/InfocircleIcon.svg"
                     />
                     <FormModule
-                        fieldsData={fieldsData}
+                        fieldsData={fieldsData.basicInformationData}
                         formData={formData}
                         handleChange={handleChange}
                     />
+                    
                 </Box>
+                <Box style={{ marginTop: "0.4rem" }}>
+                    <Header
+                        label="Address Details"
+                        image="/assets/icons/InfocircleIcon.svg"
+                    />
+                    <FormModule
+                        fieldsData={fieldsData.locationData}
+                        formData={formData}
+                        handleChange={handleChange}
+                    />
+                    
+                </Box>
+                <Box style={{ marginTop: "0.4rem" }}>
+                    <Header
+                        label="Contact Details"
+                        image="/assets/icons/InfocircleIcon.svg"
+                    />
+                    <FormModule
+                        fieldsData={fieldsData.spocData}
+                        formData={formData}
+                        handleChange={handleChange}
+                    />
+                    
+                </Box>
+                <Box style={{ marginTop: "0.4rem" }}>
+                    <Header
+                        label="Siblings Information"
+                        image="/assets/icons/InfocircleIcon.svg"
+                    />
+                    <FormModule
+                        fieldsData={fieldsData.siblingsInformation}
+                        formData={formData}
+                        handleChange={handleChange}
+                    />
+                    
+                </Box>  
+                <Button variant="contained">New Addmission</Button>
+
             </Paper>
         </Stack>
     )

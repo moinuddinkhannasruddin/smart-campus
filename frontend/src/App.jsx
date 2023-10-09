@@ -1,13 +1,13 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
-import {userModulesData} from "@helpers/dummyBackend";
+import { userModulesData } from "@helpers/dummyBackend";
 import NotFound from "@pages/NotFound";
 import Login from "@pages/Login";
 import NotAuthorized from "@pages/NotAuthorized";
 import routeConfig from "@helpers/routeConfig";
 import LayoutContainer from "@containers/layout/LayoutContainer";
-import {ProtectedRoute} from "@helpers/routes";
-import {Navigate, Route, Routes} from "react-router-dom";
+import { ProtectedRoute } from "@helpers/routes";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
 
@@ -34,15 +34,15 @@ function App() {
     return (
         <Routes>
             <Route
-                path="/" element={hasToken ? <Navigate to="/dashboard"/> : <Navigate to="/login"/>}
+                path="/" element={hasToken ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
             />
 
             {/* Public Routes */}
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/login" element={<Login />} />
 
-            <Route path="" element={<LayoutContainer/>}>
+            <Route path="" element={<LayoutContainer />}>
 
-                { routeConfig.map((route, index) => {
+                {routeConfig.map((route, index) => {
                     const hasAccess = userModulesData.some(
                         (module) => module.name === route.name
                     );
@@ -60,7 +60,7 @@ function App() {
                                                             element={itm.component}
                                                         />
 
-                                                    }/>
+                                                    } />
                                                 </>
                                             )
                                         })}
@@ -77,7 +77,7 @@ function App() {
                                             />
 
 
-                                        }/>
+                                        } />
                                         <Route
                                             key={route.path}
                                             path={route.path}
@@ -104,7 +104,7 @@ function App() {
                                             />
 
 
-                                        }/>
+                                        } />
                                         <Route
                                             key={route.path}
                                             path={route.path}
@@ -139,13 +139,13 @@ function App() {
                         <Route
                             key={route.path}
                             path={route.path}
-                            element={<NotAuthorized/>}
+                            element={<NotAuthorized />}
                         />
                     );
                 })}
 
             </Route>
-            <Route path="*" element={<NotFound/>}/>
+            <Route path="*" element={<NotFound />} />
         </Routes>
     )
 }

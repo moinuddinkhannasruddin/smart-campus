@@ -8,8 +8,10 @@ class AdmissionContainer extends Component {
         this.state = {
             projectInformationForm: {
                 basicInformation: {},
+                addressDetails:{},
                 location: {},
                 spoc: {},
+                siblingsInformation:{},
                 powerBackup: {},
                 groupProfile: {},
                 renderPicture: {},
@@ -36,7 +38,7 @@ class AdmissionContainer extends Component {
             {
                 projectInformationForm: {
                     ...prevState.projectInformationForm,
-                    [group]: {
+                    [group]: {   
                         ...prevState.projectInformationForm[group],
                         [name]: value,
                     },
@@ -46,11 +48,13 @@ class AdmissionContainer extends Component {
     }
     render() {
         const projectInformationForm = this.state;
+        console.log(formFields);
         return (
             <AdmissionForms
-                fieldsData={formFields.basicInformationData}
+                fieldsData={formFields}
                 formData={projectInformationForm}
                 handleChange={this.handleChange} />
+               
         )
     }
 }
