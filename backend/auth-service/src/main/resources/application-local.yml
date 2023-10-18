@@ -1,0 +1,34 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /api
+
+#Service Discovery
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:password@localhost:8088/eureka
+
+#Database
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_campus
+    username: root
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+  application:
+    name: auth-service
+
+app:
+  otp:
+    attempt: 8
+
+security:
+  jwt:
+    authUrl: /**/auth/**/
+    header: Authorization
+    prefix: Bearer
+    secret: 2tIenCNhOwiZosM5
+    expiration: 3600
