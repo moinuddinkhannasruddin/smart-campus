@@ -4,7 +4,7 @@ import { Button, Paper } from '@mui/material';
 import Box from '../common/Box';
 import Header from '../common/Header';
 import FormModule from '../common/FormModule';
-import TextField from '../common/TextField';
+
 
 const AdmissionForms = ({ fieldsData, formData, handleChange }) => {
    
@@ -73,6 +73,7 @@ const AdmissionForms = ({ fieldsData, formData, handleChange }) => {
                 <Button variant="contained">New Addmission</Button>
 
             </Paper>
+            
         </Stack>
     )
 }

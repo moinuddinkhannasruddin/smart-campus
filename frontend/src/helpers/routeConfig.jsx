@@ -1,7 +1,7 @@
 // routeConfig.js
 import Dashboard from "@pages/Dashboard";
 import Profile from "@pages/Profile";
-import Customers from "@pages/Customers";
+import Pagination from "@/pages/Pagination";
 import { MenuBook } from "@mui/icons-material";
 import Admission from "@/pages/Students/Admission";
 import Students from "@/pages/Students";
@@ -39,15 +39,11 @@ const routeConfig = [
     ),
     roles: ["user", "admin"], // Roles that have access to this route
   },
-  {
-    // IconButton: <MenuBook />,
+   {
     path: "/students",
     component: Students,
     name: "Students",
-    type: "accordian",
-    roles: ["user", "admin"], // Roles that have access to this route
-    subPath: studentSubPath,
-    children: studentsChildrens,
+    roles: ["user", "admin"],
     icon: (
       <img
         src="/assets/icons/CustomerIcon.svg"
@@ -58,9 +54,23 @@ const routeConfig = [
     ),
   },
   {
-    path: "/customers",
-    component: Customers,
-    name: "Customers",
+    path: "/admission",
+    component: Admission,
+    name: "Admission",
+    roles: ["user", "admin"], // Roles that have access to this route
+    icon: (
+      <img
+        src="/assets/icons/CustomerIcon.svg"
+        alt="Notification-icon"
+        width="24"
+        height="24"
+      />
+    ),
+  },
+  {
+    path: "/pagination",
+    component: Pagination,
+    name: "Pagination",
     roles: ["user", "admin"], // Roles that have access to this route
     icon: (
       <img
