@@ -23,7 +23,7 @@ const DashboardCards = (props) => {
       }}
     >
       <Text
-        variant="typo14light"
+        variant="typo14"
         color={color}
         sx={{
           marginBottom: 2,
@@ -32,7 +32,7 @@ const DashboardCards = (props) => {
         {data.name}
       </Text>
       <Stack direction="row" justifyContent={"space-between"}>
-        <Text variant="typo24medium" color={color}>{data.value}</Text>
+        <Text variant="typo24" color={color}>{data.value}</Text>
         {/* <img src={data.chart} alt="chart" min-width="128px" width={width} /> */}
       </Stack>
     </Paper>

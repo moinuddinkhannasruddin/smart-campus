@@ -6,7 +6,7 @@ function* authSagas({ type, payload }) {
     try {
         const response = yield call(authApis.login, payload);
         if (response) {
-            localStorage.setItem("userrname", payload.username);
+            localStorage.setItem("username", payload.username);
         }
         yield put({ type: authConstants.LOGIN_SUCCESS, payload: payload.username });
     } catch (error) {
