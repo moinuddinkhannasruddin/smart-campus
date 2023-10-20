@@ -128,6 +128,61 @@ const SidebarMenu = (props) => {
                 }
 
                 if (type === "accordian") {
+                    if (isDrawerExpanded) {
+                        return (
+                            <MuiAccordion className={classes.accordianRoot} key={`${key}_${primaryText}`}
+                                expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
+                                sx={{ background: "transparent", boxShadow: "none" }}>
+
+                                <MuiAccordionSummary sx={{ background: "transparent", paddingLeft: "29px" }} className="two"
+                                    aria-controls="panel1d-content" id="panel1d-header" expandIcon={<ExpandMoreIcon />}>
+                                    {icon && (
+                                        <ListItemIcon classes={{ root: classes.listItemIconRoot }}>
+                                            {icon}
+                                        </ListItemIcon>
+                                    )}
+                                    <ListItemText
+                                        primary={primaryText}
+                                        secondary={secondaryText}
+                                        classes={{
+                                            primary: cx({
+                                                [classes.listItemPrimaryText]: true,
+                                                [classes.listItemPrimaryTextActive]: isActive,
+                                            }),
+                                            secondary: cx({
+                                                [classes.listItemSecondaryText]: true,
+                                                [classes.listItemSecondaryTextActive]: isActive,
+                                            }),
+                                        }}
+                                    />
+                                </MuiAccordionSummary>
+
+                                {childrens?.length && childrens.map((itm, i) => {
+                                    return (
+                                        <MuiAccordionDetails
+                                            className={classes.listItemCollapsedRoot}
+                                            key={`${key}_${itm.name} `}
+                                            sx={{ paddingLeft: "39px", display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                                        >
+                                            <Link to={`${route}/${itm.path}`} style={{ textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between" }} classes={{ root: classes.listItemIconCollapsedRoot }}>
+                                                {icon && (
+                                                    <ListItemIcon classes={{ root: classes.listItemIconCollapsedRoot }} sx={{ paddingLeft: "16px" }}>
+                                                        {icon}
+                                                    </ListItemIcon>
+                                                )}
+                                                <Text
+                                                    variant="subtitle1"
+                                                    sx={{ color: "#fff", cursor: "pointer", paddingLeft: "20px" }}
+                                                >
+                                                    {itm.name}
+                                                </Text>
+                                            </Link>
+                                        </MuiAccordionDetails>
+                                    )
+                                })}
+                            </MuiAccordion>
+                        )
+                    }
                     return (
                         <MuiAccordion className={classes.accordianRoot} key={`${key}_${primaryText}`}
                             expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
@@ -140,20 +195,6 @@ const SidebarMenu = (props) => {
                                         {icon}
                                     </ListItemIcon>
                                 )}
-                                <ListItemText
-                                    primary={primaryText}
-                                    secondary={secondaryText}
-                                    classes={{
-                                        primary: cx({
-                                            [classes.listItemPrimaryText]: true,
-                                            [classes.listItemPrimaryTextActive]: isActive,
-                                        }),
-                                        secondary: cx({
-                                            [classes.listItemSecondaryText]: true,
-                                            [classes.listItemSecondaryTextActive]: isActive,
-                                        }),
-                                    }}
-                                />
                             </MuiAccordionSummary>
 
                             {childrens?.length && childrens.map((itm, i) => {
@@ -161,21 +202,24 @@ const SidebarMenu = (props) => {
                                     <MuiAccordionDetails
                                         className={classes.listItemCollapsedRoot}
                                         key={`${key}_${itm.name} `}
-                                        sx={{ paddingLeft: "39px" }}
+                                        sx={{ paddingLeft: "18px" }}
                                     >
                                         <Link to={`${route}/${itm.path}`} style={{ textDecoration: "none" }}>
-                                            <Text
+                                            {icon && (
+                                                <ListItemIcon classes={{ root: classes.listItemIconCollapsedRoot }} sx={{ paddingLeft: "16px" }}>
+                                                    {icon}
+                                                </ListItemIcon>
+                                            )}
+                                            {/* <Text
                                                 variant="subtitle1"
                                                 sx={{ color: "#fff", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center" }}
                                             >
                                                 {itm.name}
-                                            </Text>
+                                            </Text> */}
                                         </Link>
                                     </MuiAccordionDetails>
                                 )
                             })}
-
-
                         </MuiAccordion>
                     )
                 }
@@ -243,7 +287,9 @@ const useStyles = makeStyles((theme) =>
             paddingLeft: `${theme.spacing(0.7)} !important`,
             paddingRight: `${theme.spacing(1)} !important`,
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "flex-start",
             "&:hover": {
                 backgroundColor: `${alpha(
                     theme.palette.secondary.main,

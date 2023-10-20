@@ -15,11 +15,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="entityuser-service" target="17" />
-      <module name="inventory-service" target="17" />
-      <module name="notification-service" target="17" />
-      <module name="order-service" target="17" />
-      <module name="product-service" target="17" />
+      <module name="api-gateway" target="17" />
+      <module name="auth-service" target="17" />
+      <module name="backend" target="17" />
+      <module name="discovery-server" target="17" />
+      <module name="student-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

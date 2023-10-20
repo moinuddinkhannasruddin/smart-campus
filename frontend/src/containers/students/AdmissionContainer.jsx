@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { formFields } from './Constants'
+
 import AdmissionForms from '@/components/students/AdmissionForms'
+import { Pagination } from '@mui/material';
 
 class AdmissionContainer extends Component {
     constructor(props) {
@@ -8,12 +10,14 @@ class AdmissionContainer extends Component {
         this.state = {
             projectInformationForm: {
                 basicInformation: {},
+                addressDetails:{},
                 location: {},
                 spoc: {},
+                siblingsInformation:{},
                 powerBackup: {},
                 groupProfile: {},
                 renderPicture: {},
-                media: {}
+                media: {}   
             }
         }
     }
@@ -36,7 +40,7 @@ class AdmissionContainer extends Component {
             {
                 projectInformationForm: {
                     ...prevState.projectInformationForm,
-                    [group]: {
+                    [group]: {   
                         ...prevState.projectInformationForm[group],
                         [name]: value,
                     },
@@ -46,11 +50,15 @@ class AdmissionContainer extends Component {
     }
     render() {
         const projectInformationForm = this.state;
+        console.log(formFields);
         return (
             <AdmissionForms
-                fieldsData={formFields.basicInformationData}
+                fieldsData={formFields}
                 formData={projectInformationForm}
                 handleChange={this.handleChange} />
+
+                
+               
         )
     }
 }

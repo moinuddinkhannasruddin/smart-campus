@@ -7,7 +7,8 @@ import FormLabel from '@mui/material/FormLabel';
 import { InputLabel } from '@mui/material';
 
 const Radio = (props) => {
-    const { labelSx, label, name, value, options, handleChange,group } = props;
+    const { labelSx, label, name, value, options, handleChange,group, } = props;
+    
 
     return (
         <div>
@@ -26,7 +27,7 @@ const Radio = (props) => {
                                 key={`radio_${idx}`}
                                 value={radioValue}
                                 control={<MRadio
-                                    checked={value === radioValue}
+                                    // checked={value === radioValue}
                                     onChange={(e) => handleChange({ name, value: e.target.value,group })}
 
                                 />}
