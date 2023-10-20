@@ -1,8 +1,9 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 import Stack from "./Stack";
-import Text from "components/common/Text";
+// import Text from "components/common/Text";
 import { useTheme } from "@mui/material/styles";
+import Text from "./Text";
 
 const StatisticCard = ({ data, style }) => {
   const theme = useTheme();

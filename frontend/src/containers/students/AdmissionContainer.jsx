@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { formFields } from './Constants'
+
 import AdmissionForms from '@/components/students/AdmissionForms'
+import { Pagination } from '@mui/material';
 
 class AdmissionContainer extends Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class AdmissionContainer extends Component {
                 powerBackup: {},
                 groupProfile: {},
                 renderPicture: {},
-                media: {}
+                media: {}   
             }
         }
     }
@@ -54,6 +56,8 @@ class AdmissionContainer extends Component {
                 fieldsData={formFields}
                 formData={projectInformationForm}
                 handleChange={this.handleChange} />
+
+                
                
         )
     }
