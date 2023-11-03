@@ -1,5 +1,5 @@
 # Use a base image with Java and MySQL installed
-FROM openjdk:17-jre-slim
+FROM openjdk:17-oracle
 
 # Set the working directory
 WORKDIR /app
