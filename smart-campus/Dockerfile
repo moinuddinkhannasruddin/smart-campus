@@ -1,5 +1,5 @@
 # Use a base image with Java and Maven installed
-FROM maven:3.8.4-openjdk-11-slim AS build
+FROM maven:3.8.4-openjdk-17-slim AS build
 
 # Set the working directory
 WORKDIR /app
@@ -14,16 +14,16 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 
 # Build the application
-RUN mvn package -DskipTests
+#RUN mvn package -DskipTests
 
 # Use a base image with Java and MySQL installed
-FROM openjdk:11-jre-slim
+FROM openjdk:17-jre-slim
 
 # Set the working directory
 WORKDIR /app
 
 # Copy the built JAR file from the previous stage
-COPY --from=build /app/target/myapp.jar .
+COPY --from=build /app/target/api.jar .
 
 # Set the environment variables for the MySQL database connection
 ENV MYSQL_HOST=localhost
