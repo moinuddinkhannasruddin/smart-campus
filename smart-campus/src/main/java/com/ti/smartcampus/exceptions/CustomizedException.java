@@ -44,7 +44,7 @@ public class CustomizedException extends ResponseEntityExceptionHandler {
             return getResponse(unauthorizedException.getErrorCode(), exception, webRequest, HttpStatus.FORBIDDEN);
         }
 
-        return getResponse("NA", exception, webRequest, HttpStatus.INTERNAL_SERVER_ERROR);
+        return getResponse("NA", exception, webRequest, HttpStatus.BAD_REQUEST);
     }
 
     private static ResponseEntity<ExceptionResponse> getResponse(String errorCode, Exception exception, WebRequest webRequest, HttpStatus httpStatus) {

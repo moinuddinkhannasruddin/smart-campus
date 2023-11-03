@@ -54,7 +54,7 @@ const routeConfig = [
     ),
   },
   {
-    path: "/admission",
+    path: "/students/admission",
     component: Admission,
     name: "Admission",
     roles: ["user", "admin"], // Roles that have access to this route

@@ -59,7 +59,6 @@ function App() {
                                                             authToken={hasToken}
                                                             element={itm.component}
                                                         />
-
                                                     } />
                                                 </>
                                             )

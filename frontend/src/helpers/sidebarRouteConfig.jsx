@@ -1,9 +1,9 @@
 // routeConfig.js
 import { MenuBook } from "@mui/icons-material";
-import Pagination from "@/pages/Pagination";
+import Pagination from "@pages/Pagination";
 import Dashboard from "@pages/Dashboard";
-import Students from "@/pages/Students";
-import Admission from "@/pages/Students/Admission";
+import Students from "@pages/Students";
+import Admission from "@pages/Students/Admission";
 import Profile from "@pages/Profile";
 // import AdmissionContainer from "@/containers/students";
 
@@ -62,7 +62,7 @@ const sidebarRouteConfig = [
     // ]
   },
   {
-    path: "/Admission",
+    path: "/students/admission",
     component: Admission,
     name: "Admission",
     roles: ["user", "admin"], // Roles that have access to this route
