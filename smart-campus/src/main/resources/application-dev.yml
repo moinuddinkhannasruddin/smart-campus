@@ -12,7 +12,7 @@ eureka:
 #Database
 spring:
   datasource:
-    url: jdbc:mysql://u8cbtbgvdiqpfsz5:V5uwAIEbrYdAfzQ6mzbr@bcvqfixonw1vjbg8hkrn-mysql.services.clever-cloud.com:3306/bcvqfixonw1vjbg8hkrn
+    url: jdbc:mysql://bcvqfixonw1vjbg8hkrn-mysql.services.clever-cloud.com:3306/bcvqfixonw1vjbg8hkrn
     username: u8cbtbgvdiqpfsz5
     password: V5uwAIEbrYdAfzQ6mzbr
   jpa:
