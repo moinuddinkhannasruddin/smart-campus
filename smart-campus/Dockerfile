@@ -7,7 +7,7 @@ ENV ENVIRONMENT=dev
 WORKDIR /app
 
 # Copy the built JAR file
-COPY target/api.jar /app/api.jar
+COPY build/api.jar /app/api.jar
 
 # Set the environment variables for the MySQL database connection
 #ENV MYSQL_HOST=localhost
