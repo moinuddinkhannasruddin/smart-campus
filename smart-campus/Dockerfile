@@ -1,11 +1,13 @@
 # Use a base image with Java and MySQL installed
 FROM maven:3.8.5-openjdk-17 as build
 
+COPY . .
+
 # Copy the built JAR file
-#RUN mvn clean package -DskipTests
+RUN mvn clean package install -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY /target/api.jar api.jar
+COPY --from=build /target/api.jar api.jar
 
 # Set the environment variables for the MySQL database connection
 #ENV MYSQL_HOST=localhost
