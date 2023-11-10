@@ -1,0 +1,34 @@
+---
+version: "3.7"
+services:
+  mysqldb:
+    container_name: mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smart_campus
+    image: mysql:8.0.33
+    networks:
+      springboot-mysql-network:
+    ports:
+      - "3307:3306"
+    restart: on-failure
+
+  smart-campus:
+    container_name: api-container
+    image: smart-campus-api
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - mysqldb
+    depends_on:
+      - mysqldb
+    networks:
+      springboot-mysql-network:
+    restart: on-failure
+
+networks:
+  springboot-mysql-network:
+    name: springboot-mysql-network

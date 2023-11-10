@@ -39,8 +39,8 @@ public class EEntity extends Base {
     @Column(name = "is_active", columnDefinition = "TINYINT(1) DEFAULT 0")
     private Integer isActive;
 
-    @OneToOne
-    @JoinColumn(name = "es_id", insertable = false, updatable = false)
-    private EntitySetting entitySetting;
+//    @OneToOne
+//    @JoinColumn(name = "es_id", insertable = false, updatable = false)
+//    private EntitySetting entitySetting;
 
 }

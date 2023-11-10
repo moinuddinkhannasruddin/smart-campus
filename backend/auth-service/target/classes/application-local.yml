@@ -3,17 +3,6 @@ server:
   servlet:
     context-path: /api
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      base-path: /actuator
-
-springdoc:
-  swagger-ui:
-    path: swagger-ui
-
 #Service Discovery
 eureka:
   client:
@@ -30,7 +19,7 @@ spring:
     hibernate:
       ddl-auto: update
   application:
-    name: smart-campus
+    name: auth-service
 
 app:
   otp:

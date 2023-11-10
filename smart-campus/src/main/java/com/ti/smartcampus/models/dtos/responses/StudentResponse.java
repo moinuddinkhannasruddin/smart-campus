@@ -18,6 +18,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class StudentResponse {
 
+    private String id;
     private String admissionNumber;
     private String firstName;
     private String middleName;
